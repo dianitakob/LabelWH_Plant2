@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LabelWH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>LabelWH - Etiquetas Web</h1>
+    
+    <label for="labelType">Label type:</label>
+    <select id="labelType">
+      <option value="receiving.btw">Receiving label</option>
+      <option value="shipping.btw">Shipping label</option>
+      <option value="internal.btw">Internal label</option>
+    </select>
+
+    <h2>Materiales disponibles</h2>
+    <label for="searchInput">Buscar material:</label>
+    <input type="text" id="searchInput" placeholder="Buscar por número o descripción...">
+    <div class="table-wrapper">
+    <table id="materialsTable">
+        <thead>
+        <tr>
+            <th>NumParte</th>
+            <th>Descripción</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+        <!-- Aquí se llenan las filas con JS -->
+        </tbody>
+    </table>
+    </div>
+
+
+    <div class="form-section">
+      <label for="partNumber">Part number:</label>
+      <input type="text" id="PartNumber" readonly>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date">
+
+      <label for="qtyPerBox">Quantity per box:</label>
+      <input type="number" id="qtyPerBox" value="1">
+
+      <label for="labelQty">Label quantity:</label>
+      <input type="number" id="labelQty" value="1">
+
+      <label for="line">Line:</label>
+      <input type="text" id="line">
+
+      <button id="printBtn">PRINT</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
