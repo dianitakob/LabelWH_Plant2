@@ -20,8 +20,7 @@ function renderMaterials(list) {
 }
 
 // Obtener materiales desde el backend
-//fetch('http://10.131.6.15:3004/materials')
-fetch('http://localhost:3000/materials')
+fetch('http://10.131.6.15:3004/materials')
   .then(response => response.json())
   .then(data => {
     materials = data; // Guardamos el arreglo recibido
@@ -50,17 +49,10 @@ printBtn.addEventListener("click", () => {
     return;
   }
 
-  fetch('http://localhost:3000/print', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ part })
-  })
-  .then(res => res.text())
-  .then(msg => alert(msg))
-  .catch(err => {
-    console.error(err);
-    alert("Error al enviar etiqueta a impresión");
-  });
+  console.log("Imprimiendo etiqueta:");
+  console.log({ labelType, part, date, qtyBox, labelQty, line });
+
+  alert("Etiqueta enviada a impresión (demo)");
 });
 
 // Búsqueda en vivo

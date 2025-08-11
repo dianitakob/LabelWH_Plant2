@@ -30,33 +30,4 @@ app.get("/materials", async (req, res) => {
 });
 
 
-// Endpoint para imprimir etiqueta
-app.post("/print", (req, res) => {
-  const { PartNumber } = req.body;
-
-  // Ruta del archivo .btw (ajústala según tu PC)
-  // Ruta del archivo .btw (específica)
-const btwPath = "C:/Users/dortiz/Documents/PINK LABELS/PINK_LABEL_V6_2016_BEV3_PRUEBA.btw";
-
-  // Comando Bartender con variables PartNo y Description
-  const cmd = `"C:\\Program Files\\Seagull\\BarTender 2022\\bartend.exe" /F="${btwPath}" /P /X /D="PartNumber=${PartNumber};" /PRN="${printer}"`;
-
-  console.log("Ejecutando:", cmd);
-
-  exec(cmd, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error al imprimir: ${error.message}`);
-      return res.status(500).send("Error al imprimir la etiqueta");
-    }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-    }
-    console.log(`stdout: ${stdout}`);
-    res.send("Etiqueta enviada a impresión");
-  });
-});
-
-
-
-//app.listen(3004, () => console.log("API corriendo en http://localhost:3004"));
-app.listen(3000, () => console.log("API corriendo en http://localhost:3000"));
+app.listen(3004, () => console.log("API corriendo en http://localhost:3004"));
